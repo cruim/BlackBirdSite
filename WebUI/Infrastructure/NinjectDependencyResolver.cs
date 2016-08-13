@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using Domain.Abstract;
+using Domain.Concrete;
 using Ninject;
 
 namespace WebUI.Infrastructure
@@ -18,7 +18,7 @@ namespace WebUI.Infrastructure
 
         private void AddBindings()
         {
-            throw new NotImplementedException();
+            kernel.Bind<IBookRepository>().To<EFBookRepository>();
         }
 
         public object GetService(Type serviceType)
